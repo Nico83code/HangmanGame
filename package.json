@@ -1,0 +1,23 @@
+{
+  "name": "Dag_5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nico83code/HangmanGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nico83code/HangmanGame/issues"
+  },
+  "homepage": "https://github.com/Nico83code/HangmanGame#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
