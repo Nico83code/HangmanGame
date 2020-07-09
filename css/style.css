@@ -1,5 +1,4 @@
-.win,
-.lose {
+.win, .lose {
   display: none;
 }
 
@@ -8,5 +7,5 @@
 }
 
 .lose h2 {
-  color: blue;
+  color: orange;
 }
