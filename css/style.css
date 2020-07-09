@@ -1,5 +1,4 @@
-.win,
-.lose {
+.win, .lose {
   display: none;
 }
 
@@ -17,4 +16,5 @@
 
 .ditisniks {
   height: 200px;
+  width: 100px;
 }
