@@ -1,0 +1,104 @@
+.container {
+  width: 200px;
+  height: 300px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.vertical {
+  background: black;
+  width: 25px;
+  height: 300px;
+  position: absolute;
+  right: 25px;
+}
+
+.horizontal {
+  background: black;
+  width: 200px;
+  height: 25px;
+  position: absolute;
+  bottom: 0;
+}
+
+.hook {
+  width: 63px;
+  height: 50px;
+  border: solid 25px black;
+  border-bottom: none;
+  position: absolute;
+  right: 25px;
+}
+
+.man {
+  width: 100px;
+  height: 175px;
+  position: absolute;
+  top: 75px;
+  left: 25px;
+}
+
+.head {
+  width: 40px;
+  height: 40px;
+  border: solid 10px black;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  left: 19px;
+  display: none;
+}
+
+.torso {
+  background: black;
+  width: 10px;
+  height: 70px;
+  position: absolute;
+  top: 57px;
+  left: 45px;
+  display: none;
+}
+
+.leftarm {
+  background: black;
+  width: 10px;
+  height: 60px;
+  position: absolute;
+  top: 30px;
+  left: 21px;
+  transform: rotate(-50deg);
+  display: none;
+}
+
+.rightarm {
+  background: black;
+  width: 10px;
+  height: 60px;
+  position: absolute;
+  top: 30px;
+  right: 21px;
+  transform: rotate(50deg);
+  display: none;
+}
+
+.leftleg {
+  background: black;
+  width: 10px;
+  height: 60px;
+  position: absolute;
+  bottom: -2px;
+  left: 25px;
+  transform: rotate(40deg);
+  display: none;
+}
+
+.rightleg {
+  background: black;
+  width: 10px;
+  height: 60px;
+  position: absolute;
+  bottom: -2px;
+  right: 25px;
+  transform: rotate(-40deg);
+  display: none;
+}
