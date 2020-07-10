@@ -158,5 +158,3 @@ module.exports = {
   letters,
   theWord,
 };
-
-module.exports = {};
