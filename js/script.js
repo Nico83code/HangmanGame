@@ -82,7 +82,7 @@ const guessTries = (value) => {
 const updateLetters = (value) => {
   inputs.push(value);
   theWord(word, inputs);
-  letters(word, inputs);
+  guessedLetters(word, inputs);
 };
 
 const winOrLose = () => {
