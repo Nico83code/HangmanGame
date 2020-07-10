@@ -13,11 +13,3 @@ describe("guess word checker", () => {
     expect(wordPicker("")).toBeFalsy();
   });
 });
-
-describe("letter checker", () => {
-  test("guessed letter should return true ", () => {
-    const word = "test";
-    const guessedLetters = "t";
-    expect(letters(word, guessedLetters.includes)).toEqual(true);
-  });
-});
