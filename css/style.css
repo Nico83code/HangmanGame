@@ -1,4 +1,5 @@
-.win, .lose {
+.win,
+.lose {
   display: none;
 }
 
@@ -8,13 +9,4 @@
 
 .lose h2 {
   color: blue;
-}
-
-.restart {
-  height: 200px;
-}
-
-.ditisniks {
-  height: 200px;
-  width: 100px;
 }
