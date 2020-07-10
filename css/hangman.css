@@ -1,3 +1,27 @@
+body, h1, h2, h3, p {
+  margin: 0;
+}
+
+.grid-container {
+  display: grid;
+  height: 100vh;
+  text-align: center;
+  grid-template-rows: auto auto auto;
+  background-color: green;
+}
+
+.grid-header {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-footer {
+  background-color: white;
+}
+
 .container {
   width: 200px;
   height: 300px;
@@ -101,4 +125,16 @@
   right: 25px;
   transform: rotate(-40deg);
   display: none;
+}
+
+.win, .lose {
+  display: none;
+}
+
+.win h2 {
+  color: red;
+}
+
+.lose h2 {
+  color: blue;
 }
