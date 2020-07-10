@@ -95,7 +95,7 @@ body {
   position: absolute;
   top: 21px;
   left: 15px;
-  transform: rotate(-160deg);
+  transform: rotate(20deg);
   /* display: none; */
 }
 
@@ -106,7 +106,7 @@ body {
   position: absolute;
   top: 21px;
   right: -10px;
-  transform: rotate(160deg);
+  transform: rotate(-20deg);
   /* display: none; */
 }
 
@@ -146,7 +146,7 @@ body {
   position: absolute;
   top: 50%;
   left: 0;
-  animation: mario 4s linear;
+  animation: mario 4s linear forwards;
 }
 
 @keyframes mario {

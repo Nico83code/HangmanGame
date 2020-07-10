@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
   startTheGame();
 });
 
-module.exports = {
-  wordPicker,
-  winTheGame,
-  loseTheGame,
-  wordGuessed,
-  letters,
-  theWord,
-};
+// module.exports = {
+//   wordPicker,
+//   winTheGame,
+//   loseTheGame,
+//   wordGuessed,
+//   letters,
+//   theWord,
+// };
