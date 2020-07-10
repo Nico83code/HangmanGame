@@ -23,12 +23,12 @@
           <div class="vertical"></div>
           <div class="horizontal"></div>
           <div class="man">
-            <div class="man-0 man-1"></div>
-            <div class="man-0 man-2"></div>
-            <div class="man-0 man-3"></div>
-            <div class="man-0 man-4"></div>
-            <div class="man-0 man-5"></div>
-            <div class="man-0 man-6"></div>
+            <div class="head"></div>
+            <div class="torso"></div>
+            <div class="leftarm"></div>
+            <div class="rightarm"></div>
+            <div class="leftleg"></div>
+            <div class="rightleg"></div>
           </div>
         </div>
       </div>
@@ -39,11 +39,12 @@
         </div>
 
         <div class="lose">
-          <h2>You lost..</h2>
-          <!-- <img src="lose.gif" /> -->
+          <div class="lost">
+            <h2>You lost..</h2>
+            <img class="mario" src="images/mario.png" />
+          </div>
           <p>The chosen word was: <span></span></p>
         </div>
-
         <input
           type="text"
           class="form-control"
@@ -51,7 +52,7 @@
           maxlength="1"
         />
         <button class="guess btn btn-success">Guess</button>
-        <button class="restart btn btn-fail">Restart</button>
+        <button class="restart btn btn-danger">Restart</button>
         <h2>Current word:</h2>
         <div class="the_word">_ _ _ _ _</div>
         <h3>Incorrectly guessed letters:</h3>

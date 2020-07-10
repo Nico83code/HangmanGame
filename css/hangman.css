@@ -5,7 +5,7 @@ body {
 .grid-container {
   display: grid;
   height: 100vh;
-  width: 70vw;
+  width: 60vw;
   margin: 0 auto;
   text-align: center;
   grid-template-rows: auto auto auto;
@@ -22,6 +22,7 @@ body {
 
 .grid-footer {
   background-color: black;
+  text-align: center;
 }
 
 .container {
@@ -48,10 +49,11 @@ body {
 }
 
 .hook {
-  width: 63px;
+  width: 100px;
   height: 50px;
   border: solid 25px black;
   border-bottom: none;
+  border-right: none;
   position: absolute;
   right: 25px;
 }
@@ -70,19 +72,20 @@ body {
   border: solid 10px black;
   border-radius: 50%;
   position: absolute;
-  top: -2px;
-  left: 19px;
-  display: none;
+  top: -25px;
+  left: 42px;
+  /* display: none; */
 }
 
 .torso {
-  background: black;
-  width: 10px;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  width: 55px;
   height: 70px;
   position: absolute;
-  top: 57px;
-  left: 45px;
-  display: none;
+  top: 15px;
+  left: 35px;
+  /* display: none; */
 }
 
 .leftarm {
@@ -90,10 +93,10 @@ body {
   width: 10px;
   height: 60px;
   position: absolute;
-  top: 30px;
-  left: 21px;
-  transform: rotate(-50deg);
-  display: none;
+  top: 21px;
+  left: 15px;
+  transform: rotate(-160deg);
+  /* display: none; */
 }
 
 .rightarm {
@@ -101,32 +104,48 @@ body {
   width: 10px;
   height: 60px;
   position: absolute;
-  top: 30px;
-  right: 21px;
-  transform: rotate(50deg);
-  display: none;
+  top: 21px;
+  right: -10px;
+  transform: rotate(160deg);
+  /* display: none; */
 }
 
 .leftleg {
-  background: black;
-  width: 10px;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  width: 15px;
   height: 60px;
   position: absolute;
-  bottom: -2px;
-  left: 25px;
-  transform: rotate(40deg);
-  display: none;
+  bottom: 31px;
+  left: 33px;
+  transform: rotate(21deg);
+  /* display: none; */
 }
 
 .rightleg {
-  background: black;
-  width: 10px;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  width: 15px;
   height: 60px;
   position: absolute;
-  bottom: -2px;
-  right: 25px;
-  transform: rotate(-40deg);
-  display: none;
+  bottom: 31px;
+  right: 7px;
+  transform: rotate(-21deg);
+  /* display: none; */
+}
+
+.head, .leftarm, .rightarm, .leftleg, .rightleg {
+  transition: all .3s ease-in;
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+.mario {
+  width: 100px;
+  height: 100px;
+  position: absolute;
 }
 
 .win, .lose {
@@ -134,9 +153,15 @@ body {
 }
 
 .win h2 {
-  color: red;
+  color: green;
 }
 
 .lose h2 {
-  color: blue;
+  color: red;
+}
+
+@media only screen and (max-width: 800px) {
+  .grid-container {
+    width: 100%;
+  }
 }
