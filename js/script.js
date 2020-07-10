@@ -10,14 +10,25 @@ const wordList = [
   // "snoer",
   // "geeuw",
 ];
-let amountTries = 1;
+let amountTries = 2;
+let word;
 
 // function pick word
-let word;
-const wordpicker = function (list) {
+const wordPicker = function (list) {
   let index = Math.floor(Math.random() * list.length);
   const x = list;
   return x[index];
+};
+
+//win game
+const winTheGame = () => {
+  document.querySelector(".win").style.display = "block";
+  gameOver = true;
+};
+//lose game
+const loseTheGame = () => {
+  document.querySelector(".lose").style.display = "block";
+  gameOver = true;
 };
 
 //let inputs
@@ -28,32 +39,7 @@ const wordGuessed = function (word, inputs) {
   return remaining.length === 0;
 };
 
-// const clean = function () {
-//   document.querySelector("input").value = "";
-// };
-
-// let gameOver;
-
-//win game
-const winTheGame =  () => {
-  document.querySelector(".win").style.display = "block";
-  gameOver = true;
-};
-//lose game
-const loseTheGame = () => {
-  document.querySelector(".lose").style.display = "block";
-  gameOver = true;
-};
-
-// const spanTheWord1 = function (word) {
-//   document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;
-// };
-
-// let tries = 0;
-// const updateTriesDisplay = function (tries) {
-//   document.querySelector(".lives span").innerHTML = 5 - tries;
-// };
-
+//wrong letters
 const letters = function (word, inputs) {
   let wrongLetters = inputs.filter(function (letter) {
     return !word.includes(letter);
@@ -61,6 +47,7 @@ const letters = function (word, inputs) {
   document.querySelector(".guessed_letters").innerHTML = wrongLetters.join(" ");
 };
 
+//update word
 const theWord = function (word, inputLetterWords) {
   let display = word.map(function (letter) {
     if (inputLetterWords.includes(letter)) {
@@ -72,20 +59,12 @@ const theWord = function (word, inputLetterWords) {
   document.querySelector(".the_word").innerHTML = display.join(" ");
 };
 
-
-/// conditions
-const gameStatus = (gameOver) => {
-  if (gameOver === true) {
-    // const input1 = document.querySelector("input").value;
-    // document.querySelector("input").value = "";
-    return;
-  }
-};
-
-const guessLetter = function () {
+// conditions
+const guessLetter = () => {
   if (gameOver) {
     return;
   }
+
   const input1 = document.querySelector("input").value;
   document.querySelector("input").value = "";
 
@@ -109,24 +88,17 @@ const guessLetter = function () {
   }
 };
 
-// function getThePlayer(player) {
-//   let play = document.getElementById("player1");
-//   play = play + "We are about to start the game";
-//   return play;
-// }
-
 const resetGame = () => {
   document.querySelector(".win").style.display = "none";
   document.querySelector(".lose").style.display = "none";
   document.querySelector("input").value = "";
 };
 //start the game
-function beginTheGameWithPlayer(player1) {
-  // getThePlayer(player1);
+function startTheGame() {
   gameOver = false;
   resetGame();
 
-  word = wordpicker(wordList).split("");
+  word = wordPicker(wordList).split("");
   document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;
   word;
 
@@ -140,8 +112,15 @@ function beginTheGameWithPlayer(player1) {
 // dom loadin
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".guess").addEventListener("click", guessLetter);
-  document
-    .querySelector(".restart")
-    .addEventListener("click", beginTheGameWithPlayer);
-  beginTheGameWithPlayer();
+  document.querySelector(".restart").addEventListener("click", startTheGame);
+  startTheGame();
 });
+
+module.exports = {
+  wordPicker,
+  winTheGame,
+  loseTheGame,
+  wordGuessed,
+  letters,
+  theWord,
+};
