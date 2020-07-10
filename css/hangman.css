@@ -146,21 +146,19 @@ body {
   position: absolute;
   top: 50%;
   left: 0;
-  animation: mario 8s;
+  animation: mario 4s linear;
 }
 
 @keyframes mario {
   0% {
     left: 0;
   }
-  20% {
-    left: 80%
-  }
-  75% {
-    left: 0;
+  50% {
+    opacity: 1;
   }
   100% {
     left: 80%;
+    opacity: 0;
   }
 }
 
@@ -171,7 +169,6 @@ body {
 .mario {
   width: 100px;
   height: 100px;
-  transform: scaleX(-1);
 }
 
 .win, .lose {
