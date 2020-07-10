@@ -150,11 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
   startTheGame();
 });
 
-module.exports = {
-  wordPicker,
-  guessedLetters,
-  doubleLetter,
-  guessTries,
-  updateLetters,
-  winOrLose,
-};
+// module.exports = {
+//   wordPicker,
+//   guessedLetters,
+//   doubleLetter,
+//   guessTries,
+//   updateLetters,
+//   winOrLose,
+// };
