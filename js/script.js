@@ -40,7 +40,7 @@ const wordGuessed = function (word, inputs) {
 };
 
 //wrong letters
-const letters = function (word, inputs) {
+const guessedLetters = function (word, inputs) {
   let wrongLetters = inputs.filter(function (letter) {
     return !word.includes(letter);
   });
@@ -72,7 +72,7 @@ const doubleLetter = (value) => {
   }
 };
 
-const wordInclude = (value) => {
+const guessTries = (value) => {
   if (!word.includes(value)) {
     tries++;
     document.querySelector(".lives span").innerHTML = amountTries - tries;
@@ -105,7 +105,7 @@ const guessLetter = () => {
   // if (inputs.includes(inputValue) || inputValue === "") {
   //   return;
   // }
-  wordInclude(inputValue);
+  guessTries(inputValue);
   // if (!word.includes(inputValue)) {
   //   tries++;
   //   document.querySelector(".lives span").innerHTML = amountTries - tries;
@@ -141,7 +141,7 @@ function startTheGame() {
 
   inputs = [];
   theWord(word, inputs);
-  letters(word, inputs);
+  guessedLetters(word, inputs);
 }
 // dom loadin
 document.addEventListener("DOMContentLoaded", function () {
@@ -152,11 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 module.exports = {
   wordPicker,
-  winTheGame,
-  loseTheGame,
-  wordGuessed,
-  letters,
-  theWord,
+  guessedLetters,
+  doubleLetter,
+  guessTries,
+  updateLetters,
+  winOrLose,
 };
-
-module.exports = {};
