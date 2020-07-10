@@ -10,10 +10,12 @@ const wordList = [
   // "snoer",
   // "geeuw",
 ];
-let amountTries = 2;
+let amountTries = 5;
 let word;
+let inputs;
+let tries = 0;
 
-// function pick word
+// function guessing word
 const wordPicker = function (list) {
   let index = Math.floor(Math.random() * list.length);
   const x = list;
@@ -31,7 +33,12 @@ const loseTheGame = () => {
   gameOver = true;
 };
 
-//let inputs
+// //update screen misschien dubbel
+
+const updateTriesDisplay = function (tries) {
+  document.querySelector(".lives span").innerHTML = amountTries - tries;
+};
+
 const wordGuessed = function (word, inputs) {
   let remaining = word.filter(function (letter) {
     return !inputs.includes(letter);
@@ -61,7 +68,7 @@ const theWord = function (word, inputLetterWords) {
 
 // conditions
 const value = () => {
-  givenValue = document.querySelector("input").value;
+  const givenValue = document.querySelector("input").value;
   document.querySelector("input").value = "";
   return givenValue;
 };
@@ -72,11 +79,10 @@ const doubleLetter = (value) => {
   }
 };
 
-const guessTries = (value) => {
-  if (!word.includes(value)) {
-    tries++;
-    document.querySelector(".lives span").innerHTML = amountTries - tries;
-  }
+const guessTries = () => {
+  tries++;
+  updateTriesDisplay(tries);
+  return tries;
 };
 
 const updateLetters = (value) => {
@@ -97,40 +103,26 @@ const guessLetter = () => {
   if (gameOver) {
     return;
   }
+
   const inputValue = value();
 
-  // const input1 = document.querySelector("input").value;
-  // document.querySelector("input").value = "";
-  doubleLetter(inputValue);
-  // if (inputs.includes(inputValue) || inputValue === "") {
-  //   return;
-  // }
+  if (inputs.includes(inputValue) || inputValue === "") {
+    return;
+  }
   guessTries(inputValue);
-  // if (!word.includes(inputValue)) {
-  //   tries++;
-  //   document.querySelector(".lives span").innerHTML = amountTries - tries;
-  // }
+
   updateLetters(inputValue);
-  // inputs.push(inputValue);
-  // theWord(word, inputs);
-  // letters(word, inputs);
+
   winOrLose();
-  // if (wordGuessed(word, inputs)) {
-  //   winTheGame();
-  // } else if (tries >= amountTries) {
-  //   loseTheGame();
-  // }
 };
 
-const resetGame = () => {
-  document.querySelector(".win").style.display = "none";
-  document.querySelector(".lose").style.display = "none";
-  document.querySelector("input").value = "";
-};
 //start the game
 function startTheGame() {
   gameOver = false;
-  resetGame();
+  //reset game
+  document.querySelector(".win").style.display = "none";
+  document.querySelector(".lose").style.display = "none";
+  document.querySelector("input").value = "";
 
   word = wordPicker(wordList).split("");
   document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;

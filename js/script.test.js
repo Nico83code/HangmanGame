@@ -1,13 +1,13 @@
 const {
   wordPicker,
   guessedLetters,
-  doubleLetter,
   guessTries,
+  doubleLetter,
   updateLetters,
   winOrLose,
 } = require("./script");
 
-describe("guess word checker", () => {
+describe("guess word checker not empty", () => {
   test("guess word is not empty", () => {
     expect(wordPicker("test")).toBeTruthy();
   });
@@ -17,14 +17,9 @@ describe("guess word checker", () => {
   });
 });
 
-describe("guess letter check", () => {
-  const input = 
-  const word = 
-  test("letter in guessedlist", () => {
-    expect(guessedLetters("test")).toBeTruthy();
-  });
-
-  test("letter nog in guessedlist", () => {
-    expect(guessedLetters("")).toBeFalsy();
+describe("Test to update the attempts", () => {
+  test("If the tries increase", () => {
+    let tries = 0;
+    expect(guessTries(tries)).toBe(tries + 1);
   });
 });
