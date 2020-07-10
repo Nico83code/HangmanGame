@@ -47,7 +47,7 @@ const letters = function (word, inputs) {
   document.querySelector(".guessed_letters").innerHTML = wrongLetters.join(" ");
 };
 
-//update word
+//update word in dom
 const theWord = function (word, inputLetterWords) {
   let display = word.map(function (letter) {
     if (inputLetterWords.includes(letter)) {
@@ -60,32 +60,66 @@ const theWord = function (word, inputLetterWords) {
 };
 
 // conditions
-const guessLetter = () => {
-  if (gameOver) {
-    return;
-  }
-
-  const input1 = document.querySelector("input").value;
+const value = () => {
+  givenValue = document.querySelector("input").value;
   document.querySelector("input").value = "";
+  return givenValue;
+};
 
-  if (inputs.includes(input1) || input1 === "") {
+const doubleLetter = (value) => {
+  if (inputs.includes(value) || value === "") {
     return;
   }
+};
 
-  if (!word.includes(input1)) {
+const wordInclude = (value) => {
+  if (!word.includes(value)) {
     tries++;
     document.querySelector(".lives span").innerHTML = amountTries - tries;
   }
+};
 
-  inputs.push(input1);
+const updateLetters = (value) => {
+  inputs.push(value);
   theWord(word, inputs);
   letters(word, inputs);
+};
 
+const winOrLose = () => {
   if (wordGuessed(word, inputs)) {
     winTheGame();
   } else if (tries >= amountTries) {
     loseTheGame();
   }
+};
+
+const guessLetter = () => {
+  if (gameOver) {
+    return;
+  }
+  const inputValue = value();
+
+  // const input1 = document.querySelector("input").value;
+  // document.querySelector("input").value = "";
+  doubleLetter(inputValue);
+  // if (inputs.includes(inputValue) || inputValue === "") {
+  //   return;
+  // }
+  wordInclude(inputValue);
+  // if (!word.includes(inputValue)) {
+  //   tries++;
+  //   document.querySelector(".lives span").innerHTML = amountTries - tries;
+  // }
+  updateLetters(inputValue);
+  // inputs.push(inputValue);
+  // theWord(word, inputs);
+  // letters(word, inputs);
+  winOrLose();
+  // if (wordGuessed(word, inputs)) {
+  //   winTheGame();
+  // } else if (tries >= amountTries) {
+  //   loseTheGame();
+  // }
 };
 
 const resetGame = () => {
@@ -116,11 +150,13 @@ document.addEventListener("DOMContentLoaded", function () {
   startTheGame();
 });
 
-// module.exports = {
-//   wordPicker,
-//   winTheGame,
-//   loseTheGame,
-//   wordGuessed,
-//   letters,
-//   theWord,
-// };
+module.exports = {
+  wordPicker,
+  winTheGame,
+  loseTheGame,
+  wordGuessed,
+  letters,
+  theWord,
+};
+
+module.exports = {};
