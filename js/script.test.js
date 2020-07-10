@@ -1,25 +1,58 @@
 const {
   wordPicker,
-  guessedLetters,
+  theWord,
   guessTries,
-  doubleLetter,
   updateLetters,
-  winOrLose,
+  checkGameover,
+  wordGuessed,
 } = require("./script");
 
 describe("guess word checker not empty", () => {
-  test("guess word is not empty", () => {
-    expect(wordPicker("test")).toBeTruthy();
-  });
-
-  test("guess word is empty", () => {
-    expect(wordPicker("")).toBeFalsy();
+  test("test word", () => {
+    const input = ["test"];
+    expect(wordPicker(input)).toEqual(["t", "e", "s", "t"]);
   });
 });
 
-describe("Test to update the attempts", () => {
-  test("If the tries increase", () => {
+describe("check letter is in guess word", () => {
+  test("test letter in word", () => {
+    const array = ["t", "e", "s", "t"];
+    expect(theWord(array)).toContain(["t"]);
+  });
+});
+
+describe("check guess tries increase", () => {
+  test("check tries increase", () => {
+    const tries = 0;
+    expect(guessTries(tries)).toBe(1);
+  });
+});
+
+describe("check guess letters", () => {
+  test("check tries increase", () => {
+    const expected = ["t"];
+    const array = ["t", "e", "s", "t"];
+    expect(updateLetters(array)).toEqual(expect.arrayContaining(expected));
+  });
+});
+
+describe("check guess tries increase", () => {
+  test("check tries increase", () => {
     let tries = 0;
-    expect(guessTries(tries)).toBe(tries + 1);
+    expect(guessTries(tries)).toBe(1);
+  });
+});
+
+describe("check gameover when no tries", () => {
+  test("check tries increase", () => {
+    let tries = 5;
+    expect(checkGameover(tries)).toBe(true);
+  });
+});
+
+describe("game status checker", () => {
+  test("check game won if word is guessed", () => {
+    const word = ["t", "e", "s", "t"];
+    expect(wordGuessed(word, ["t", "e", "s", "t"])).toEqual(true);
   });
 });

@@ -16,10 +16,10 @@ let inputs;
 let tries = 0;
 
 // function guessing word
-const wordPicker = function (list) {
+const wordPicker = (list) => {
   let index = Math.floor(Math.random() * list.length);
-  const x = list;
-  return x[index];
+  list[index].split("");
+  return list[index].split("");
 };
 
 //win game
@@ -33,12 +33,12 @@ const loseTheGame = () => {
   gameOver = true;
 };
 
-// //update screen misschien dubbel
-
-const updateTriesDisplay = function (tries) {
+//update dom tries
+const updateTriesDisplay = () => {
   document.querySelector(".lives span").innerHTML = amountTries - tries;
 };
 
+//word guessed
 const wordGuessed = function (word, inputs) {
   let remaining = word.filter(function (letter) {
     return !inputs.includes(letter);
@@ -79,10 +79,12 @@ const doubleLetter = (value) => {
   }
 };
 
-const guessTries = () => {
+const guessTries = (value) => {
+  // if (!word.includes(value)) {
   tries++;
   updateTriesDisplay(tries);
   return tries;
+  // }
 };
 
 const updateLetters = (value) => {
@@ -103,40 +105,45 @@ const guessLetter = () => {
   if (gameOver) {
     return;
   }
-
+  //input value
   const inputValue = value();
-
   if (inputs.includes(inputValue) || inputValue === "") {
     return;
   }
   guessTries(inputValue);
-
   updateLetters(inputValue);
-
   winOrLose();
 };
 
+const checkGameover = (tries) => {
+  if (tries === 5) {
+    return true;
+  }
+};
+
 //start the game
-function startTheGame() {
+const startTheGame = () => {
   gameOver = false;
+  tries = 0;
+  inputs = [];
+
   //reset game
   document.querySelector(".win").style.display = "none";
   document.querySelector(".lose").style.display = "none";
   document.querySelector("input").value = "";
 
-  word = wordPicker(wordList).split("");
+  word = wordPicker(wordList);
+
   document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;
   word;
 
-  tries = 0;
   document.querySelector(".lives span").innerHTML = amountTries - 0;
 
-  inputs = [];
   theWord(word, inputs);
   guessedLetters(word, inputs);
-}
+};
 // dom loadin
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".guess").addEventListener("click", guessLetter);
   document.querySelector(".restart").addEventListener("click", startTheGame);
   startTheGame();
@@ -144,9 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 module.exports = {
   wordPicker,
-  guessedLetters,
-  doubleLetter,
+  theWord,
   guessTries,
   updateLetters,
-  winOrLose,
+  checkGameover,
+  wordGuessed,
 };
