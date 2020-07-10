@@ -1,25 +1,27 @@
-body, h1, h2, h3, p {
-  margin: 0;
+body {
+  background-color: lightblue;
 }
 
 .grid-container {
   display: grid;
   height: 100vh;
+  width: 70vw;
+  margin: 0 auto;
   text-align: center;
   grid-template-rows: auto auto auto;
-  background-color: green;
+  background-color: gold;
+  color: white;
 }
 
 .grid-header {
   background-color: black;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .grid-footer {
-  background-color: white;
+  background-color: black;
 }
 
 .container {

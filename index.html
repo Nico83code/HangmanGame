@@ -44,9 +44,14 @@
           <p>The chosen word was: <span></span></p>
         </div>
 
-        <input type="text" placeholder="Guess a letter" maxlength="1" />
-        <button class="guess">Guess</button>
-        <button class="restart">Restart</button>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Guess a letter"
+          maxlength="1"
+        />
+        <button class="guess btn btn-success">Guess</button>
+        <button class="restart btn btn-fail">Restart</button>
         <h2>Current word:</h2>
         <div class="the_word">_ _ _ _ _</div>
         <h3>Incorrectly guessed letters:</h3>
