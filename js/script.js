@@ -10,7 +10,7 @@ const wordList = [
   // "snoer",
   // "geeuw",
 ];
-let amountTries = 5;
+let amountTries = 6;
 let word;
 let inputs;
 let tries = 0;
@@ -80,11 +80,12 @@ const doubleLetter = (value) => {
 };
 
 const guessTries = (value) => {
-  // if (!word.includes(value)) {
-  tries++;
-  updateTriesDisplay(tries);
-  return tries;
-  // }
+  if (!word.includes(value)) {
+    tries++;
+    hangmanAnimation(tries);
+    updateTriesDisplay(tries);
+    return tries;
+  }
 };
 
 const updateLetters = (value) => {
@@ -131,6 +132,7 @@ const startTheGame = () => {
   document.querySelector(".win").style.display = "none";
   document.querySelector(".lose").style.display = "none";
   document.querySelector("input").value = "";
+  resetHangMan();
 
   word = wordPicker(wordList);
 

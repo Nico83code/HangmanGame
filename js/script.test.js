@@ -24,12 +24,12 @@ describe("check letter is in guess word", () => {
 describe("check guess tries increase", () => {
   test("check tries increase", () => {
     const tries = 0;
-    expect(guessTries(tries)).toBe(1);
+    expect(guessTries(1)).toBe(2);
   });
 });
 
 describe("check guess letters", () => {
-  test("check tries increase", () => {
+  test("check guess letters", () => {
     const expected = ["t"];
     const array = ["t", "e", "s", "t"];
     expect(updateLetters(array)).toEqual(expect.arrayContaining(expected));
@@ -38,13 +38,12 @@ describe("check guess letters", () => {
 
 describe("check guess tries increase", () => {
   test("check tries increase", () => {
-    let tries = 0;
-    expect(guessTries(tries)).toBe(1);
+    expect(guessTries(1)).toBe(2);
   });
 });
 
 describe("check gameover when no tries", () => {
-  test("check tries increase", () => {
+  test("check gameover when no tries", () => {
     let tries = 5;
     expect(checkGameover(tries)).toBe(true);
   });

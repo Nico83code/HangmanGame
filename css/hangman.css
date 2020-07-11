@@ -74,18 +74,23 @@ body {
   position: absolute;
   top: -25px;
   left: 42px;
-  /* display: none; */
+  visibility: hidden;
 }
 
 .torso {
   background: rgb(9, 9, 121);
-  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 1) 21%,
+    rgba(2, 0, 36, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
   width: 55px;
   height: 70px;
   position: absolute;
   top: 15px;
   left: 35px;
-  /* display: none; */
+  visibility: hidden;
 }
 
 .leftarm {
@@ -96,7 +101,7 @@ body {
   top: 21px;
   left: 15px;
   transform: rotate(20deg);
-  /* display: none; */
+  visibility: hidden;
 }
 
 .rightarm {
@@ -107,35 +112,49 @@ body {
   top: 21px;
   right: -10px;
   transform: rotate(-20deg);
-  /* display: none; */
+  visibility: hidden;
 }
 
 .leftleg {
   background: rgb(9, 9, 121);
-  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 1) 21%,
+    rgba(2, 0, 36, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
   width: 15px;
   height: 60px;
   position: absolute;
   bottom: 31px;
   left: 33px;
   transform: rotate(21deg);
-  /* display: none; */
+  visibility: hidden;
 }
 
 .rightleg {
   background: rgb(9, 9, 121);
-  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 21%, rgba(2, 0, 36, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 1) 21%,
+    rgba(2, 0, 36, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
   width: 15px;
   height: 60px;
   position: absolute;
   bottom: 31px;
   right: 7px;
   transform: rotate(-21deg);
-  /* display: none; */
+  visibility: hidden;
 }
 
-.head, .leftarm, .rightarm, .leftleg, .rightleg {
-  transition: all .3s ease-in;
+.head,
+.leftarm,
+.rightarm,
+.leftleg,
+.rightleg {
+  transition: all 0.3s ease-in;
 }
 
 .btn {
@@ -200,7 +219,8 @@ body {
   height: 100px;
 }
 
-.win, .lose {
+.win,
+.lose {
   display: none;
 }
 
